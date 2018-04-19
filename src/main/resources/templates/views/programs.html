@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thmeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thmeleaf/layout"
+	layout:decorate="~{fragments/main_layout}">
+<head>
+
+
+</head>
+<body>
+<div layout:fragment="content" class="container mySpace">
+	     <form action="/courses" class="form-inline">
+	        <div class="form-group mb-2">
+				<select class="custom-select">
+			      <option selected="">Select by program name</option>
+			      <option value="BS_SE201">Software Engineering</option>
+			      <option value="BS_CSCI202">Computer Science & Engineering</option>
+			    </select>
+  
+	        </div>
+	     </form>
+		<div class="card">
+			<div class="card card-body">
+				<table class="table table-hover">
+					<thead>
+						<tr  class="table-success">
+							<th  scope="col" >Program Name</th>
+							<th  scope="col">Program Type</th>
+							<th  scope="col">Number of Student</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="table-active">
+							<td>Software Engineering</td>
+							<td> Bachelor of Science</td>
+							<td> 4</td>
+						</tr>
+						<tr class="table-active">
+							<td>Computer Science</td>
+							<td>Bachelor of Science</td>
+							<td> 2</td>
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+	</div>	
+</body>
+</html>
