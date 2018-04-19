@@ -35,30 +35,8 @@ public class EPSCourseController {
 	@Autowired
 	private EPSProgramService epsProgramService;
 	
-	/*
-	
-	@GetMapping("/course")
-	public String courseForm(Model model) {
-	
-		model.addAttribute("course", new EPSCourse());
-		return "views/courseForm";
-	}
-	
-	@PostMapping("/course")
-	public String addCourse(@Valid EPSCourse epsCourse,BindingResult bindingResult, Model model) {
-		if(bindingResult.hasErrors()) {
-			return "views/courseForm";
-		}
-		if(epsCourseService.isCourseExist(epsCourse.getCourse_id())) {
-			model.addAttribute("exist", true);
-			return "views/courseForm";
-		}
-		epsCourseService.createCourse(epsCourse);
-		return "views/added_course";
-		
-	}
-	
-	*/
+
+
 	@GetMapping("/course_lists")
 	public String CourseList(Model model, @RequestParam(defaultValue="") String course_id){
 		model.addAttribute("courses",epsCourseService.findAll());
