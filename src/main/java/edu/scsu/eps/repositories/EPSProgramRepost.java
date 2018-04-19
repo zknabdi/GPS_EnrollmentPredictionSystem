@@ -3,20 +3,27 @@
  */
 package edu.scsu.eps.repositories;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import edu.scsu.eps.entities.EPSProgram;
+import edu.scsu.eps.entities.EPSStudent;
+
 
 /**
  * @author znabd
  * @About Program Repository
  *
  */
-@Component
-@Repository
+
+
 public interface EPSProgramRepost extends JpaRepository<EPSProgram, String>{
+
+	@Query
+	List<EPSProgram> findByepsStudent(@Param(value="epsStudent")EPSStudent epsStudent);
 
 
 

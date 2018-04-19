@@ -8,7 +8,7 @@
 </head>
 <body>
 <div layout:fragment="content" class="container mySpace">
-	     <form action="/courses" class="form-inline">
+	     <form action="/programs" class="form-inline">
 	        <div class="form-group mb-2">
 				<select class="custom-select">
 			      <option selected="">Select by program name</option>
@@ -23,27 +23,26 @@
 				<table class="table table-hover">
 					<thead>
 						<tr  class="table-success">
-							<th  scope="col" >Program Name</th>
+							<th  scope="col">Program Code</th>
+							<th  scope="col">Program Name</th>
 							<th  scope="col">Program Type</th>
-							<th  scope="col">Number of Student</th>
+							<th  scope="col">Number of Student(s)</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="table-active">
-							<td>Software Engineering</td>
-							<td> Bachelor of Science</td>
-							<td> 4</td>
-						</tr>
-						<tr class="table-active">
-							<td>Computer Science</td>
-							<td>Bachelor of Science</td>
-							<td> 2</td>
+						<tr class="table-active" th:each="program:${programs}">
+							<td th:text="${program.program_code}"></td>
+							<td th:text="${program.program_name}"></td>
+							<td th:text="${program.program_type}"></td>
+							<td></td>
 						</tr>
 					</tbody>
 
 				</table>
 			</div>
 		</div>
+
+		
 	</div>	
 </body>
 </html>

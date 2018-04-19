@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.Email;
@@ -35,7 +36,7 @@ public class EPSStudent {
 	@NotEmpty
 	private String email;
 	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="COURSE_STUDENT", joinColumns= {
+	@JoinTable(name="enrollments", joinColumns= {
 			@JoinColumn(name="STUDENT_NUM", referencedColumnName="techID")
 	},inverseJoinColumns= {
 			@JoinColumn(name="COURSE_NUM", referencedColumnName="course_id")
