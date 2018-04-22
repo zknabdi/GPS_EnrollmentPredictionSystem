@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.scsu.eps.entities.EPSCourse;
+import edu.scsu.eps.entities.EPSProgram;
 import edu.scsu.eps.entities.EPSStudent;
 import edu.scsu.eps.repositories.EPSStudentRepost;
 
@@ -42,4 +43,9 @@ public class EPSStudentService {
 	public List<EPSStudent> findByTechID(String techID){
 		return epsStudentRepository.findByTechID(techID);
 	}
+	
+	public long countByProgram(String programCode){
+		return epsStudentRepository.countByepsProgram(programCode);
+	}
+	
 }
