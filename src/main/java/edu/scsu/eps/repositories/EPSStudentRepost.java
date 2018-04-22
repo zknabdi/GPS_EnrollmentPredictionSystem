@@ -23,5 +23,6 @@ public interface EPSStudentRepost extends JpaRepository<EPSStudent, String>{
 	//@Query
 	List<EPSStudent> findByTechID(String techID );
 
+	Long countByepsProgram(String program_code);
 	
 }

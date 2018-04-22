@@ -24,6 +24,8 @@ public interface EPSProgramRepost extends JpaRepository<EPSProgram, String>{
 
 	@Query
 	List<EPSProgram> findByepsStudent(@Param(value="epsStudent")EPSStudent epsStudent);
+	
+	
 
 
 
