@@ -22,7 +22,7 @@ public class EPSProgramService {
 	@Autowired
 	private EPSProgramRepost epsProgramRepository;
 	
-	public void addStudent(EPSProgram program, EPSStudent epsStudent) {
+	public void addStudent(EPSProgram program, List<EPSStudent> epsStudent) {
 		
 		program.setEpsStudent(epsStudent);
 		

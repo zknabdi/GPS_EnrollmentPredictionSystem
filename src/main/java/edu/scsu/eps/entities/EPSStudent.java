@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -43,8 +44,9 @@ public class EPSStudent {
 	})
 	private List<EPSCourse> epsCourse;
 	
-	@OneToMany(mappedBy="epsStudent", cascade =CascadeType.ALL)
-	private List<EPSProgram> epsProgram;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="program_code")
+	private EPSProgram epsProgram;
 
 	/**
 	 * @param techID
@@ -55,7 +57,7 @@ public class EPSStudent {
 	 * @param epsProgram
 	 */
 	public EPSStudent(String techID, String firstName, String lastName, String email, List<EPSCourse> epsCourse,
-			List<EPSProgram> epsProgram) {
+			EPSProgram epsProgram) {
 		this.techID = techID;
 		this.firstName = firstName;
 		LastName = lastName;
@@ -161,14 +163,14 @@ public class EPSStudent {
 	/**
 	 * @return the epsProgram
 	 */
-	public List<EPSProgram> getEpsProgram() {
+	public EPSProgram getEpsProgram() {
 		return epsProgram;
 	}
 
 	/**
 	 * @param epsProgram the epsProgram to set
 	 */
-	public void setEpsProgram(List<EPSProgram> epsProgram) {
+	public void setEpsProgram(EPSProgram epsProgram) {
 		this.epsProgram = epsProgram;
 	}
 
