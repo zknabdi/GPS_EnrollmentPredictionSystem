@@ -12,12 +12,6 @@
 	        <div class="form-group mb-2">
 				<select class="custom-select">
 			      <option selected="">Select by Course Number</option>
-			      <option value="SE 101">SE 101</option>
-			      <option value="SE 465">SE 465</option>
-			       <option value="SE 491">SE 491</option>
-			        <option value="SE 491">SE 491</option>
-			      <option value="MATH 271">MATH 271</option>
-			       <option value="MATH 221">MATH 221</option>
 			    </select>
   
 	        </div>
@@ -27,38 +21,22 @@
 				<table class="table table-hover">
 					<thead>
 						<tr  class="table-primary">
-							<th>Course Number</th>
-							<th>Course Name</th>
-							<th>Department</th>
-							<th>Description</th>
-							<th>Semester Offered</th>
-							<th>Number of Student</th>
+							<th scope="col">Course Number</th>
+							<th scope="col">Course Name</th>
+							<th scope="col">Department</th>
+							<th scope="col">Description</th>
+							<th scope="col">Semester Offered</th>
+							<th scope="col">Number of Student</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="table-active">
-							<td>SE 101</td>
-							<td> Ethic & Engineering</td>
-							<td> SE </td>
-							<td> Ethics(more) </td>
-							<td> Fall 18</td>
-							<td> 4</td>
-						</tr>
-						<tr >
-							<td>SE 465</td>
-							<td> Software Quality & Testing</td>
-							<td> SE </td>
-							<td> Quality... </td>
-							<td> Fall 19</td>
-							<td> 5</td>
-						</tr>
-						<tr class="table-active" >
-							<td>MATH_271</td>
-							<td> Discrete math</td>
-							<td> Mathematics & Statistics </td>
-							<td> Logical and Reasoning in Discrete Mathematics  </td>
-							<td> Spring 19</td>
-							<td> 8</td>
+						<tr class="table-active" th:each="course:${courses}">
+							<td th:text="${course.course_id}"></td>
+							<td th:text="${course.course_name}"></td>
+							<td th:text="${course.course_depart}"></td>
+							<td th:text="${course.description}"></td>
+							<td th:text="${course.semester_offer}"></td>
+							<td >0</td>
 						</tr>
 					</tbody>
 

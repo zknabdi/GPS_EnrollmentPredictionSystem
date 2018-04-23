@@ -14,7 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import edu.scsu.eps.entities.EPSCourse;
 import edu.scsu.eps.entities.EPSProgram;
 import edu.scsu.eps.entities.EPSStudent;
-import edu.scsu.eps.services.EPSCourseService;
 import edu.scsu.eps.services.EPSProgramService;
 import edu.scsu.eps.services.EPSStudentService;
 
@@ -27,8 +26,8 @@ public class GpsEnrollmentPredictionSystemApplicationTests {
 	@Autowired
 	private EPSStudentService studentService;
 	
-	@Autowired
-	private EPSCourseService courseService;
+	//@Autowired
+//	private EPSCourseService courseService;
 	
 	@Autowired
 	private EPSProgramService programService;

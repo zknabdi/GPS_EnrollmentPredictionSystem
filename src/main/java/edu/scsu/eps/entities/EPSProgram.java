@@ -21,23 +21,21 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 public class EPSProgram {
 	@Id
-	@NotEmpty
 	@Column(unique=true)
-	private String program_code;
+	private String programCode;
 	@NotEmpty
 	private String program_name;
 	private String program_type;
-	@ManyToOne
-	@JoinColumn(name="STUDENT_NUM")
-	private EPSStudent epsStudent;
+	@OneToMany(mappedBy="epsProgram")
+	private List<EPSStudent> epsStudent;
 	/**
-	 * @param program_code
+	 * @param programCode
 	 * @param program_name
 	 * @param program_type
 	 * @param epsStudent
 	 */
-	public EPSProgram(String program_code, String program_name, String program_type, EPSStudent epsStudent) {
-		this.program_code = program_code;
+	public EPSProgram(String programCode, String program_name, String program_type, List<EPSStudent> epsStudent) {
+		this.programCode = programCode;
 		this.program_name = program_name;
 		this.program_type = program_type;
 		this.epsStudent = epsStudent;
@@ -47,12 +45,12 @@ public class EPSProgram {
 	
 	
 	/**
-	 * @param program_code
+	 * @param programCode
 	 * @param program_name
 	 * @param program_type
 	 */
-	public EPSProgram(String program_code, String program_name, String program_type) {
-		this.program_code = program_code;
+	public EPSProgram(String programCode, String program_name, String program_type) {
+		this.programCode = programCode;
 		this.program_name = program_name;
 		this.program_type = program_type;
 	}
@@ -61,16 +59,16 @@ public class EPSProgram {
 
 
 	/**
-	 * @return the program_code
+	 * @return the programCode
 	 */
 	public String getProgram_code() {
-		return program_code;
+		return programCode;
 	}
 	/**
-	 * @param program_code the program_code to set
+	 * @param programCode the programCode to set
 	 */
-	public void setProgram_code(String program_code) {
-		this.program_code = program_code;
+	public void setProgram_code(String programCode) {
+		this.programCode = programCode;
 	}
 	/**
 	 * @return the program_name
@@ -99,13 +97,13 @@ public class EPSProgram {
 	/**
 	 * @return the epsStudent
 	 */
-	public EPSStudent getEpsStudent() {
+	public List<EPSStudent> getEpsStudent() {
 		return epsStudent;
 	}
 	/**
 	 * @param epsStudent the epsStudent to set
 	 */
-	public void setEpsStudent(EPSStudent epsStudent) {
+	public void setEpsStudent(List<EPSStudent> epsStudent) {
 		this.epsStudent = epsStudent;
 	}
 	/**
@@ -119,7 +117,7 @@ public class EPSProgram {
 	 */
 	@Override
 	public String toString() {
-		return "EPSProgram [program_code=" + program_code + ", program_name=" + program_name + ", program_type="
+		return "EPSProgram [programCode=" + programCode + ", program_name=" + program_name + ", program_type="
 				+ program_type + ", epsStudent=" + epsStudent + "]";
 	}
 	

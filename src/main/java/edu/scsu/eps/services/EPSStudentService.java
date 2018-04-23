@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.scsu.eps.entities.EPSCourse;
+import edu.scsu.eps.entities.EPSProgram;
 import edu.scsu.eps.entities.EPSStudent;
 import edu.scsu.eps.repositories.EPSStudentRepost;
 
@@ -21,24 +22,38 @@ import edu.scsu.eps.repositories.EPSStudentRepost;
 public class EPSStudentService {
 
 	@Autowired
-	private EPSStudentRepost epsStudentRepost;
+	private EPSStudentRepost epsStudentRepository;
 	
 	
-	// count the number of course registered by student
 	public void createStudent(EPSStudent epsStudent) {
 		EPSCourse epsCourse = new EPSCourse();
-		List<EPSCourse> course = new ArrayList<>();
-		course.add(epsCourse);
-		epsStudent.setEpsCourse(course);
-		epsStudentRepost.save(epsStudent);
-		
-		
+		List<EPSCourse> courses = new ArrayList<>();
+		courses.add(epsCourse);
+		epsStudent.setEpsCourse(courses);
+		epsStudentRepository.save(epsStudent);
 	}
-	
-	
 	public EPSStudent findOne(String techID) {
-		
-		return epsStudentRepost.findOne(techID);
+		return epsStudentRepository.findOne(techID);
 	}
-
+	
+	public List<EPSStudent> findAll(){
+		return epsStudentRepository.findAll();
+	}
+	
+	public List<EPSStudent> findByTechID(String techID){
+		return epsStudentRepository.findByTechID(techID);
+	}
+	
+	public long countByProgram(String programCode){
+		return epsStudentRepository.countByepsProgram(programCode);
+	}
+	
+	public long countByStudent(String techID) {
+		return epsStudentRepository.countByTechID(techID);
+	}
+	public long countAll() {
+		// TODO Auto-generated method stub
+		return epsStudentRepository.count();
+	}
+	
 }

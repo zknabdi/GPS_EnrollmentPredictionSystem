@@ -18,23 +18,22 @@ import edu.scsu.eps.repositories.EPSProgramRepost;
  */
 @Service
 public class EPSProgramService {
-
+	
 	@Autowired
-	private EPSProgramRepost epsProgramRepost;
+	private EPSProgramRepost epsProgramRepository;
 	
-	public void addStudent(EPSProgram program, EPSStudent epsStudent) {
+	public void addStudent(EPSProgram program, List<EPSStudent> epsStudent) {
+		
 		program.setEpsStudent(epsStudent);
-		epsProgramRepost.save(program);
+		
+		epsProgramRepository.save(program);
+		
+		
 	}
-
-	public List<EPSProgram> findAll() {
-		// TODO Auto-generated method stub
-		return epsProgramRepost.findAll();
+	public List<EPSProgram> findStudentProgram(EPSStudent program_code){
+		return epsProgramRepository.findByepsStudent(program_code);
 	}
-
-/*
-	public List<EPSProgram>findStudentProgram(EPSStudent epsStudent){
-		return epsProgramRepost.findByStudent(epsStudent);
-	}*/
-	
+	public List<EPSProgram> findAll(){
+		return epsProgramRepository.findAll();
+	}
 }

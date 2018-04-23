@@ -7,43 +7,48 @@
 
 </head>
 <body>
-<div layout:fragment="content" class="container mySpace">
-	     <form action="/courses" class="form-inline">
-	        <div class="form-group mb-2">
+	<div layout:fragment="content" class="container mySpace">
+		<form action="/programs" class="form-inline" th:object="${programs}"
+			th:method="post">
+			<div class="form-group mb-2">
 				<select class="custom-select">
-			      <option selected="">Select by program name</option>
-			      <option value="BS_SE201">Software Engineering</option>
-			      <option value="BS_CSCI202">Computer Science & Engineering</option>
-			    </select>
-  
-	        </div>
-	     </form>
+					<option value="1">Select a program</option>
+					<option th:each="program:${programs}"
+						th:text="${program.program_name}">Select a
+						program</option>
+
+				</select>
+
+			</div>
+		</form>
 		<div class="card">
 			<div class="card card-body">
 				<table class="table table-hover">
 					<thead>
-						<tr  class="table-success">
-							<th  scope="col" >Program Name</th>
-							<th  scope="col">Program Type</th>
-							<th  scope="col">Number of Student</th>
+						<tr class="table-success">
+							<th scope="col">Program Code</th>
+							<th scope="col">Program Name</th>
+							<th scope="col">Program Type</th>
+							<th scope="col">Number of Student(s)</th>
 						</tr>
+
 					</thead>
 					<tbody>
-						<tr class="table-active">
-							<td>Software Engineering</td>
-							<td> Bachelor of Science</td>
-							<td> 4</td>
-						</tr>
-						<tr class="table-active">
-							<td>Computer Science</td>
-							<td>Bachelor of Science</td>
-							<td> 2</td>
+						<tr class="table-active" th:each="program:${programs}">
+							<td th:text="${program.program_code}"></td>
+							<td th:text="${program.program_name}"></td>
+							<td th:text="${program.program_type}"></td>
+							<td th:text="${count}">0</td>
+
 						</tr>
 					</tbody>
+
 
 				</table>
 			</div>
 		</div>
-	</div>	
+
+
+	</div>
 </body>
 </html>
