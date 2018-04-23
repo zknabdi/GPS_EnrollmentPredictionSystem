@@ -30,8 +30,8 @@ public class EPSProgramService {
 		
 		
 	}
-	public List<EPSProgram> findStudentProgram(EPSStudent epsStudent){
-		return epsProgramRepository.findByepsStudent(epsStudent);
+	public List<EPSProgram> findStudentProgram(EPSStudent program_code){
+		return epsProgramRepository.findByepsStudent(program_code);
 	}
 	public List<EPSProgram> findAll(){
 		return epsProgramRepository.findAll();

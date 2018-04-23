@@ -29,13 +29,13 @@ public class EPSProgram {
 	@OneToMany(mappedBy="epsProgram")
 	private List<EPSStudent> epsStudent;
 	/**
-	 * @param program_code
+	 * @param programCode
 	 * @param program_name
 	 * @param program_type
 	 * @param epsStudent
 	 */
-	public EPSProgram(String program_code, String program_name, String program_type, List<EPSStudent> epsStudent) {
-		this.programCode = program_code;
+	public EPSProgram(String programCode, String program_name, String program_type, List<EPSStudent> epsStudent) {
+		this.programCode = programCode;
 		this.program_name = program_name;
 		this.program_type = program_type;
 		this.epsStudent = epsStudent;
@@ -45,12 +45,12 @@ public class EPSProgram {
 	
 	
 	/**
-	 * @param program_code
+	 * @param programCode
 	 * @param program_name
 	 * @param program_type
 	 */
-	public EPSProgram(String program_code, String program_name, String program_type) {
-		this.programCode = program_code;
+	public EPSProgram(String programCode, String program_name, String program_type) {
+		this.programCode = programCode;
 		this.program_name = program_name;
 		this.program_type = program_type;
 	}
@@ -59,16 +59,16 @@ public class EPSProgram {
 
 
 	/**
-	 * @return the program_code
+	 * @return the programCode
 	 */
 	public String getProgram_code() {
 		return programCode;
 	}
 	/**
-	 * @param program_code the program_code to set
+	 * @param programCode the programCode to set
 	 */
-	public void setProgram_code(String program_code) {
-		this.programCode = program_code;
+	public void setProgram_code(String programCode) {
+		this.programCode = programCode;
 	}
 	/**
 	 * @return the program_name
@@ -117,7 +117,7 @@ public class EPSProgram {
 	 */
 	@Override
 	public String toString() {
-		return "EPSProgram [program_code=" + programCode + ", program_name=" + program_name + ", program_type="
+		return "EPSProgram [programCode=" + programCode + ", program_name=" + program_name + ", program_type="
 				+ program_type + ", epsStudent=" + epsStudent + "]";
 	}
 	

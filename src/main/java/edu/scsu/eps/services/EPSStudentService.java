@@ -48,4 +48,12 @@ public class EPSStudentService {
 		return epsStudentRepository.countByepsProgram(programCode);
 	}
 	
+	public long countByStudent(String techID) {
+		return epsStudentRepository.countByTechID(techID);
+	}
+	public long countAll() {
+		// TODO Auto-generated method stub
+		return epsStudentRepository.count();
+	}
+	
 }

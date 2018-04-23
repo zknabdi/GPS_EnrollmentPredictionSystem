@@ -25,4 +25,6 @@ public interface EPSStudentRepost extends JpaRepository<EPSStudent, String>{
 
 	Long countByepsProgram(String program_code);
 	
+	long countByTechID(String techID);
+	
 }

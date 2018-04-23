@@ -46,12 +46,18 @@ public class EPSCourseController {
 	public String programList(Model model, @RequestParam(defaultValue="") String program_code){
 		
 		model.addAttribute("programs",epsProgramService.findAll());
+		model.addAttribute("studentID", epsStudentService.findOne(program_code));
+		model.addAttribute("count", countByStudent());
 		
 		
 		return "views/programs";
 	}
 	
 
+	public long countByStudent() {
+		
+		return epsStudentService.countAll();
+	}
 	
 	
 	
